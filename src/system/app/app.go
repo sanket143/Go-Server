@@ -6,6 +6,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/gorilla/handlers"
 	"github.com/sanket143/lisa/src/system/router"
 )
@@ -13,6 +14,7 @@ import (
 // Server Model
 type Server struct {
 	port string
+	Db   *dynamodb.DynamoDB
 }
 
 // NewServer Function
@@ -21,9 +23,10 @@ func NewServer() Server {
 }
 
 // Init all values
-func (s *Server) Init() {
+func (s *Server) Init(port string, db *dynamodb.DynamoDB) {
 	log.Println("Initializing Server...")
-	s.port = ":8000"
+	s.port = ":" + port
+	s.Db = db
 }
 
 // Start the
