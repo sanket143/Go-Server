@@ -1,6 +1,8 @@
 package home
 
-import "net/http"
+import (
+	"net/http"
+)
 
 // Index function
 func Index(w http.ResponseWriter, r *http.Request) {

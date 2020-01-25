@@ -31,10 +31,10 @@ func (s *Server) Init(port string, db *dynamodb.DynamoDB) {
 
 // Start the
 func (s *Server) Start() {
-	log.Println("Starting server!")
+	log.Println("Starting server on port" + s.port)
 
 	r := router.NewRouter()
-	r.Init()
+	r.Init(s.Db)
 
 	handler := handlers.LoggingHandler(os.Stdout, handlers.CORS(
 		handlers.AllowedOrigins([]string{"*"}),

@@ -4,9 +4,12 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/sanket143/lisa/pkg/types/routes"
 	StatusHandler "github.com/sanket143/lisa/src/controllers/v1/status"
 )
+
+var db *dynamodb.DynamoDB
 
 // Middleware Function
 func Middleware(next http.Handler) http.Handler {
@@ -26,7 +29,10 @@ func Middleware(next http.Handler) http.Handler {
 }
 
 // GetRoutes function
-func GetRoutes() (SubRoute map[string]routes.SubRoutePackage) {
+func GetRoutes(DB *dynamodb.DynamoDB) (SubRoute map[string]routes.SubRoutePackage) {
+	db = DB
+
+	StatusHandler.Init(DB)
 
 	/* Routes */
 	SubRoute = map[string]routes.SubRoutePackage{
