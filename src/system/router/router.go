@@ -3,7 +3,7 @@ package router
 import (
 	"github.com/gorilla/mux"
 	"github.com/sanket143/lisa/pkg/types/routes"
-	apiSubRoutes "github.com/sanket143/lisa/src/controllers/api/router"
+	apiSubRoutes "github.com/sanket143/lisa/src/controllers/v1/router"
 )
 
 // Router Model

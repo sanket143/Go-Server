@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/sanket143/lisa/pkg/types/routes"
-	StatusHandler "github.com/sanket143/lisa/src/controllers/api/status"
+	StatusHandler "github.com/sanket143/lisa/src/controllers/v1/status"
 )
 
 // Middleware Function
@@ -19,7 +19,7 @@ func GetRoutes() (SubRoute map[string]routes.SubRoutePackage) {
 
 	/* Routes */
 	SubRoute = map[string]routes.SubRoutePackage{
-		"/api": routes.SubRoutePackage{
+		"/v1": routes.SubRoutePackage{
 			Routes: routes.Routes{
 				routes.Route{"Status", "GET", "/status", StatusHandler.Index},
 			},
