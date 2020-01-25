@@ -7,10 +7,10 @@ type Routes []Route
 
 // Route model
 type Route struct {
-	Name       string
-	Method     string
-	Pattern    string
-	HandleFunc http.HandlerFunc
+	Name        string
+	Method      string
+	Pattern     string
+	HandlerFunc http.HandlerFunc
 }
 
 // SubRoutePackage model
